@@ -20,7 +20,7 @@ const Header = () => {
 
 
     return (
-        <div className="about card home">
+        <div className="about card home mar">
             <div className="header">
                 <h1 className="logo">Portfolio</h1>
                 <a href={CV} target="_blank" className="download-btn">
@@ -31,7 +31,7 @@ const Header = () => {
             <hr />
             <img src={ProfilePic} className="profile_pic" />
             <div className="intro">
-                <h2 id="iam">Hello, I'am</h2>
+                <h2 id="iam">Hello, I'm</h2>
                 <h1 id="main">{typedName}</h1>
                 <h3 id="sub">Software Developer</h3>
             </div>
