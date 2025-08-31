@@ -1,6 +1,8 @@
 import ScrollLink from "./ScrollLink";
 import SocialLinks from "./SocialLinks";
 import profilePic from "../assets/images/profilePic.jpg";
+import CV from "../assets/files/CV.pdf";
+
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -20,7 +22,7 @@ const Header = () => {
         <div className="about card home">
             <div className="header">
                 <h1 className="logo">Portfolio</h1>
-                <a href="/cv.pdf" download className="download-btn">
+                <a href={CV} download className="download-btn">
                     Download CV
                 </a>
             </div>
