@@ -1,6 +1,6 @@
 import ScrollLink from "./ScrollLink";
 import SocialLinks from "./SocialLinks";
-import profilePic from "../assets/images/profilePic.jpg";
+import ProfilePic from "../assets/images/ProfilePic.png";
 import CV from "../assets/files/CV.pdf";
 
 import { useEffect, useState } from "react";
@@ -18,17 +18,18 @@ const Header = () => {
         }, 300);
     }, []);
 
+
     return (
         <div className="about card home">
             <div className="header">
                 <h1 className="logo">Portfolio</h1>
-                <a href={CV} download className="download-btn">
-                    Download CV
+                <a href={CV} target="_blank" className="download-btn">
+                    View CV
                 </a>
             </div>
 
             <hr />
-            <img src={profilePic} className="profile_pic" />
+            <img src={ProfilePic} className="profile_pic" />
             <div className="intro">
                 <h2 id="iam">Hello, I'am</h2>
                 <h1 id="main">{typedName}</h1>
@@ -36,6 +37,7 @@ const Header = () => {
             </div>
             <ScrollLink />
             <SocialLinks />
+
         </div>
     );
 };

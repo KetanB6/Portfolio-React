@@ -1,5 +1,5 @@
 const ScrollLink = () => {
-  const scrollWin = () => window.scrollTo({ top: 760, behavior: "smooth" });
+  const scrollWin = () => window.scrollTo({ top: 650, behavior: "smooth" });
 
   return (
     <a className="scroll_link" href="#" onClick={scrollWin}>

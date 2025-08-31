@@ -8,6 +8,7 @@ import py from "../assets/images/python.png";
 import react from "../assets/images/react.png";
 import spring from "../assets/images/Spring.png";
 import sql from "../assets/images/sql.png";
+import Github from "../assets/images/github.png"
 
 const skills = [
   { src: c, alt: "C" },
@@ -20,6 +21,7 @@ const skills = [
   { src: html, alt: "HTML" },
   { src: css, alt: "CSS" },
   { src: js, alt: "JS" },
+  { src: Github, alt: "GitHub" }
 ];
 
 const Skills = () => (

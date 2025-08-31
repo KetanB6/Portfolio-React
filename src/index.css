@@ -98,20 +98,23 @@ body, html {
 .home .profile_pic {
   display: block; 
   width: 165px;
-  height: 170px;
+  height: 165px;
   border-radius: 50%;
+  border: 2px solid #ccc;
   margin: 30px auto 0;
-  box-shadow: -10px 0px 10px 0px rgb(35, 198, 248);
+  box-shadow: -10px 0px 30px 0px rgb(35, 198, 248);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .home .profile_pic:hover {
   transform: scale(1.05);
-  box-shadow: -10px 0px 20px 0px rgb(35, 198, 248);
+  box-shadow: 10px 0px 30px 0px rgb(35, 198, 248);
 }
 
 /* Intro / headings */
 .intro {
+  letter-spacing: 2px;
+  cursor: pointer;
   text-align: center;
   margin-top: 20px;
 }
@@ -119,7 +122,7 @@ body, html {
 #main {
   font-size: 2.5rem;
   color: aqua;
-}
+} 
 
 .sub.contain {
   text-align: center;
@@ -170,8 +173,16 @@ body, html {
 }
 
 .logos {
+  position: relative;
   width: 60px;
   height: 60px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.logos:hover {
+  transform: scale(1.05);
+  width: 70px;
+  height: 70px;
 }
 
 /* Projects section */
@@ -192,6 +203,7 @@ body, html {
 }
 
 .proj {
+  box-shadow: 0px 0px 10px 0px rgb(35, 198, 248);
   width: 250px;
   height: 150px;
   object-fit: cover;
@@ -303,5 +315,23 @@ body, html {
 
   .projects_container {
     height: 70vh;
+  }
+
+  .header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: rgb(215, 234, 234);
+    margin: 0;
+  }
+
+  .download-btn {
+    background-color: rgb(114, 240, 240);
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
   }
 }
