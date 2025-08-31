@@ -1,12 +1,12 @@
-import c from "../assets/images/c.png";
-import cpp from "../assets/images/c++.png";
+import c from "../assets/images/C.png";
+import cpp from "../assets/images/C++.png";
 import css from "../assets/images/css.png";
 import html from "../assets/images/html.png";
 import java from "../assets/images/java.png";
 import js from "../assets/images/js.png";
 import py from "../assets/images/python.png";
 import react from "../assets/images/react.png";
-import spring from "../assets/images/spring.png";
+import spring from "../assets/images/Spring.png";
 import sql from "../assets/images/sql.png";
 
 const skills = [
