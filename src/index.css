@@ -7,7 +7,11 @@ body, html {
   color: #fff;
   scrollbar-width: thin;
   scrollbar-color: #23c6f8 #1a1a1a;
+  width: 100%;
+  overflow-x: hidden;
 }
+
+
 
 /* Header container */
 .header {
@@ -19,6 +23,49 @@ body, html {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
+
+.name_pic{
+  display: flex;
+  min-height: 80vh;
+  justify-content: space-between;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  align-items: center;
+}
+
+/* Profile picture */
+.profile_pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  box-shadow: -10px 0px 20px 0px rgb(35, 198, 248);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.profile_pic:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 0px 20px 0px rgb(35, 198, 248);
+}
+
+/* Intro / headings */
+.intro {
+  text-align: left;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin-top: 0px;
+  min-width: 50vw;
+  font-size: 30px;
+  height: auto;
+}
+
+#main {
+  width: 45vw;
+  height: auto;
+  line-height: 15px;
+  font-size: 5rem;
+  color: aqua;
+} 
+
 
 /* Portfolio text (logo/title) */
 .header .logo {
@@ -95,51 +142,11 @@ body, html {
   cursor: pointer;
 }
 
-/* Profile picture */
-.home .profile_pic {
-  display: block; 
-  width: 165px;
-  height: 165px;
-  border-radius: 50%;
-  border: 2px solid #ccc;
-  margin: 30px auto 0;
-  box-shadow: -10px 0px 20px 0px rgb(35, 198, 248);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.home .profile_pic:hover {
-  transform: scale(1.05);
-  box-shadow: 10px 0px 20px 0px rgb(35, 198, 248);
-}
 
-/* Intro / headings */
-.intro {
-  letter-spacing: 2px;
-  cursor: pointer;
-  text-align: center;
-  margin-top: 20px;
-}
-
-#main {
-  font-size: 2.5rem;
-  color: aqua;
-} 
-
-.sub.contain {
-  text-align: center;
-  margin-bottom: 15px;
-  color: aqua;
-}
 
 /* Scroll link */
-.scroll_link {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-}
-.scroll_link:hover {
+
+.scrollToAbout:hover {
   color: aqua;
 }
 
@@ -147,7 +154,8 @@ body, html {
 .social {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: -40px;
+  margin-left: -60px;
 }
 .social a { margin: 0 8px; }
 .social img {
@@ -245,6 +253,7 @@ body, html {
   cursor: pointer;
   color: black;
 }
+
 .small_adj { padding: 10px 20px; }
 .more1.more2 {
   padding: 5px 15px;
@@ -254,11 +263,89 @@ body, html {
 .more1.more2:hover { background-color: #00ffffaa; }
 
 /* Responsive */
+/* Responsive */
 @media(max-width: 768px) {
-  .proj { width: 200px; height: 120px; }
-  #main { font-size: 1.5rem; }
-  .profile_pic { width: 150px; height: 150px; }
-  .pbox { width: 40vw; }
-  .projects_container { height: 70vh; }
-  .header .logo { font-size: 1.5rem; }
+  .header {
+    margin-top: 10px;
+    flex-direction: flex;
+    width: 80vw;
+    align-items: flex-start;
+    padding: 10px 20px;
+    padding-left: 40px;
+  }
+  
+
+  .header .logo {
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+  }
+
+  .download-btn {
+    align-self: flex-end;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+  }
+
+  .name_pic {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 20px;   /* reduce from 50px */
+    min-height: auto;   /* override 80vh */
+  }
+
+  .profile_pic {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 5px;  /* very small gap below */
+    margin-top: 40px;
+  }
+
+  .intro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0;           /* remove big gaps */
+    margin-top: 50px;     /* tiny spacing only */
+    min-width: auto;
+  }
+
+  #main {
+    font-size: 2.2rem;
+    line-height: 2rem;
+    width: auto;
+    padding: 0;
+  }
+
+  #sub {
+    font-size: 1.2rem;
+    margin-top: 8px;
+  }
+
+  .social {
+    margin-top: 20px;
+  }
+
+  .proj { 
+    width: 200px; 
+    height: 120px; 
+  }
+
+  .pbox { 
+    width: 90%; 
+  }
+
+  .projects_container { 
+    height: auto; 
+    max-height: 70vh; 
+  }
+
+  .social {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-left: 0px;
+}
 }
