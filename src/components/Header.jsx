@@ -21,11 +21,13 @@ const Header = () => {
 
     return (
         <div className="home">
+            <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
             <div className="header">
                 <h1 className="logo">Portfolio</h1>
                 <a href={CV} target="_blank" className="download-btn">
                     View CV
                 </a>
+            </div>
             </div>
 
             <hr />
