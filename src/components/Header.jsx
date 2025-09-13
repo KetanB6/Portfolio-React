@@ -7,7 +7,11 @@ import { useEffect, useState } from "react";
 const Header = () => {
     const fullName = "Ketan Bidave";
     const [typedName, setTypedName] = useState("");
-    const scrollWin = () => window.scrollTo({ top: 650, behavior: "smooth" });
+    const scrollWin = () => {
+        let scrollTop;
+        window.innerWidth <= 768? scrollTop=900: scrollTop=600
+        window.scrollTo({top: scrollTop, behavior: "smooth" });        
+    }
 
     useEffect(() => {
         let index = 0;
