@@ -1,7 +1,10 @@
+import { motion } from "framer-motion"
+
 const About = () => (
-  <div className="about card">
+  <div className="about card top">
     <h2 className="sub contain">Background</h2>
-    <p>
+    <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.8}} viewport={{once: true}}>
+    <p >
       I am a software developer with a strong foundation in Java and hands-on
       experience in Spring Boot, Servlets/JSP, JDBC, SQL, HTML, CSS, and React. 
       My programming journey began with C and C++, but I quickly discovered my
@@ -20,6 +23,7 @@ const About = () => (
       I am eager to continue growing while contributing to impactful,
       real-world software projects that create value at scale.
     </p>
+    </motion.div>
   </div>
 );
 

@@ -1,4 +1,3 @@
-
 import TinyCut from "../assets/images/TinyCut.png";
 import Padarth from "../assets/images/Padarth.png";
 import MindCalc from "../assets/images/MindCalc.png";
@@ -6,6 +5,7 @@ import OneView from "../assets/images/OneView.png";
 import BankingApp from "../assets/images/BankingApp.png";
 import HotelApp from "../assets/images/HMS_J.png";
 import { HiExternalLink } from "react-icons/hi";
+import { motion } from "framer-motion"
 
 const projects = [
   { id: "TinyCut", deployed: true, title: "TinyCut: Web based URL Shortner", img: TinyCut, github: "https://github.com/KetanB6/TinyCut", link: "https://tiny-cut.vercel.app/", description: " is a simple URL shortener built with Spring Boot and React that converts long links into short, easy-to-share ones. The backend generates unique short codes and maps them to original URLs, while the frontend retrieves and redirects using those codes. It provided hands-on experience with REST APIs, API integration, and full-stack deployment." },
@@ -22,18 +22,14 @@ const Projects = ({ openProject, visibleProject, closeProject }) => {
       <h2 className="sub contain">Projects</h2><br />
       <div className="proj_container projects_container">
         {projects.map((p) => (
-          <div className="pbox" key={p.id}>
-            
-              <img src={p.img} alt={p.title} className="proj" onClick={() => openProject(p.id)} />
-              {/* <div className="PTitle" style={{color: "rgb(35, 198, 248)", fontWeight:700}}>{p.title}</div> */}
+          <motion.div initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1.8}} viewport={{once: true}} key={p.id}>
+          <div className="pbox">            
+              <img src={p.img} alt={p.title} className="proj" onClick={() => openProject(p.id)} loading="lazy" />
               <p style={{paddingLeft:"20px"}}><a href={p.link} className="link">{p.id}</a>{p.deployed && <HiExternalLink />} {p.description}<a href={p.github} className="link"> GitHub-Repo</a><HiExternalLink /></p>
           </div>
+          </motion.div>
         ))}
       </div>
-
-      {/* {projects.map((p) => (
-        <ProjectDetails key={p.id} project={p} isVisible={visibleProject === p.id} close={closeProject} />
-      ))} */}
     </div>
   );
 };

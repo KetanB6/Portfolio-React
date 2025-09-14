@@ -12,7 +12,6 @@ body, html {
   scrollbar-width: thin;
   scrollbar-color: #23c6f8 #000000;
   width: 100%;
-  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -41,7 +40,17 @@ body, html {
   padding-right: 5vw;
   align-items: center;
   border: 0px solid #ccc;
+}
 
+.jlogo {
+  margin-left: 5px; /* spacing */
+  color: #f89820; /* Java orange */
+  transition: opacity 0.4s ease;
+  opacity: 0;
+}
+
+.profession:hover .jlogo{
+  opacity: 1;
 }
 
 /* Profile picture */
@@ -163,7 +172,9 @@ button{
 }
 
 /* Card styles */
+
 .about.card {
+  border: 0px solid #ccc;
   background-color: #0e0e0e;
   margin: 30px auto; /* default gap */
   padding: 30px;
@@ -173,7 +184,7 @@ button{
 }
 /* First card touches top */
 .about.card:first-of-type {
-  margin-top: 0;
+  margin-top: 10vh;
 }
 
 .about.card.info {
@@ -239,6 +250,13 @@ button{
 }
 .social img:hover { transform: scale(1.1); }
 
+.social_i{
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.social_i:hover{
+  transform: scale(1.90);
+}
 .link{
   color: aqua;
   text-decoration: none;
@@ -387,6 +405,10 @@ input{
     padding: 0 20px;
     margin-top: 20px;   /* reduce from 50px */
     min-height: 100vh; /* override 80vh */
+  }
+
+  .jlogo {
+    display: none;
   }
 
   .profile_pic {

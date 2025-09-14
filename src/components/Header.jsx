@@ -1,6 +1,7 @@
 import SocialLinks from "./SocialLinks";
 import ProfilePic from "../assets/images/ProfilePic.png";
 import CV from "../assets/files/CV.pdf";
+import { FaJava } from "react-icons/fa";
 
 import { useEffect, useState } from "react";
 
@@ -36,11 +37,11 @@ const Header = () => {
 
             <hr />
             <div className="name_pic">
-                <img src={ProfilePic} className="profile_pic" />
+                <img src={ProfilePic} className="profile_pic" loading="lazy"/>
                 <div className="intro">
                     <h2 id="iam">Hello, I'm</h2>
                     <h1 id="main">{typedName}</h1>
-                    <h2 id="sub">Java Developer</h2>
+                    <span className="profession"><h2 id="sub">Java Developer<FaJava classNamegit add="jlogo" /></h2></span>
                     
                     <span className="scrollToAbout" onClick={scrollWin}>Get to <font color="aqua">know</font> me better...</span>
                    
