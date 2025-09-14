@@ -41,7 +41,7 @@ const Skills = () => (
   <div className="about card">
     <h2 className="sub contain">Technologies</h2>
     <div className="skill_container">
-      <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.8}} viewport={{once: true}}>
+      <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.8}} viewport={{once: false}}>
         
         <FaJava className="logos"/>
         <SiSpring className="logos"/>

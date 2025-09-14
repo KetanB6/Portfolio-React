@@ -134,8 +134,6 @@ button{
 }
 
 
-
-
 /* Portfolio text (logo/title) */
 .header .logo {
   font-size: 1.8rem;
@@ -254,6 +252,7 @@ button{
   transition: background-color 0.3s, transform 0.2s;
 }
 
+
 .social_i:hover{
   transform: scale(1.90);
 }
@@ -267,6 +266,7 @@ button{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   font-size: 40px;  
 }
 .logos {
@@ -289,7 +289,7 @@ button{
 /* Projects section */
 .pbox {
   font-family: poppins;
-  padding: 20px 20px 20px 20px;
+  padding: 10px 10px 10px 10px;
   background-color: #0c0c0c;
   width: auto;
   height: auto;
@@ -301,12 +301,17 @@ button{
   border: 0px solid #ccc;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
+
 .proj_container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  height: 35vh;
+  overflow-y: auto;
+  color: #a39e9e;
 }
+
 .proj {
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   width: 250px;
@@ -320,10 +325,6 @@ button{
 .size {
   text-align: center;
   margin-top: 8px;
-}
-.projects_container {
-  height: 35vh;
-  overflow-y: auto;
 }
 
 .PTitle{
@@ -456,6 +457,12 @@ input{
     padding-top: 10px;
   }
 
+  .socialLinksBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .proj { 
     width: 200px; 
     height: 120px; 
@@ -470,9 +477,14 @@ input{
   }
 
 
-  .projects_container { 
+  .proj_container { 
     height: auto; 
     max-height: 70vh; 
+  }
+
+  .about.card{
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
 }

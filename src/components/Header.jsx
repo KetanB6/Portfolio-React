@@ -41,7 +41,7 @@ const Header = () => {
                 <div className="intro">
                     <h2 id="iam">Hello, I'm</h2>
                     <h1 id="main">{typedName}</h1>
-                    <span className="profession"><h2 id="sub">Java Developer<FaJava classNamegit add="jlogo" /></h2></span>
+                    <span className="profession"><h2 id="sub">Java Developer<FaJava className="jlogo" /></h2></span>
                     
                     <span className="scrollToAbout" onClick={scrollWin}>Get to <font color="aqua">know</font> me better...</span>
                    

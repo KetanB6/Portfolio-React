@@ -20,7 +20,7 @@ const Projects = ({ openProject, visibleProject, closeProject }) => {
   return (
     <div className="about card">
       <h2 className="sub contain">Projects</h2><br />
-      <div className="proj_container projects_container">
+      <div className="proj_container">
         {projects.map((p) => (
           <motion.div initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1.8}} viewport={{once: true}} key={p.id}>
           <div className="pbox">            
