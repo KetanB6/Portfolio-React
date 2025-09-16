@@ -43,8 +43,8 @@ body, html {
 }
 
 .jlogo {
-  margin-left: 5px; /* spacing */
-  color: #f89820; /* Java orange */
+  margin-left: 5px; 
+  color: #f89820; 
   transition: opacity 0.4s ease;
   opacity: 0;
 }
@@ -59,7 +59,7 @@ body, html {
   height: 300px;
   border-radius: 50%;
   margin-top: 3vh;
-  border: 0px solid #111; /* subtle dark border */
+  border: 0px solid #111; 
   position: relative;
   animation: glow 4s linear infinite;
   transition: transform 0.5s ease; 
@@ -174,12 +174,13 @@ button{
 .about.card {
   border: 0px solid #ccc;
   background-color: #0e0e0e;
-  margin: 30px auto; /* default gap */
+  margin: 30px auto; 
   padding: 30px;
   border-radius: 12px;
   max-width: 900px;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
+
 /* First card touches top */
 .about.card:first-of-type {
   margin-top: 10vh;
@@ -378,8 +379,7 @@ input{
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-/* Responsive */
-/* Responsive */
+
 @media(max-width: 768px) {
   .header {
     margin-top: 10px;
@@ -404,8 +404,8 @@ input{
     text-align: center;
     justify-content:flex-start;
     padding: 0 20px;
-    margin-top: 20px;   /* reduce from 50px */
-    min-height: 100vh; /* override 80vh */
+    margin-top: 20px;   
+    min-height: 100vh; 
   }
 
   .jlogo {
@@ -415,7 +415,7 @@ input{
   .profile_pic {
     width: 180px;
     height: 180px;
-    margin: 0 auto 5px;  /* very small gap below */
+    margin: 0 auto 5px;  
     margin-top: 50px;
   }
 
@@ -428,8 +428,8 @@ input{
     min-width: 100%;
     font-size: 18px;
     line-height: 25px;
-    margin: 0;           /* remove big gaps */
-    margin-top: 50px;     /* tiny spacing only */
+    margin: 0;           
+    margin-top: 50px;     
   }
 
   #main {

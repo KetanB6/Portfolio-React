@@ -1,9 +1,9 @@
-import TinyCut from "../assets/images/TinyCut.png";
-import Padarth from "../assets/images/Padarth.png";
-import MindCalc from "../assets/images/MindCalc.png";
-import OneView from "../assets/images/OneView.png";
-import BankingApp from "../assets/images/BankingApp.png";
-import HotelApp from "../assets/images/HMS_J.png";
+import TinyCut from "../assets/images/TinyCut.webp";
+import Padarth from "../assets/images/Padarth.webp";
+import MindCalc from "../assets/images/MindCalc.webp";
+import OneView from "../assets/images/OneView.webp";
+import BankingApp from "../assets/images/BankingApp.webp";
+import HotelApp from "../assets/images/HMS_J.webp";
 import { HiExternalLink } from "react-icons/hi";
 import { motion } from "framer-motion"
 
