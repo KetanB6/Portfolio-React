@@ -308,7 +308,7 @@ button{
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  height: 35vh;
+  height: 60vh;
   overflow-y: auto;
   color: #a39e9e;
 }

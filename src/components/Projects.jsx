@@ -1,3 +1,4 @@
+import ApiDak from "../assets/images/API-DAK.webp"
 import TinyCut from "../assets/images/TinyCut.webp";
 import Padarth from "../assets/images/Padarth.webp";
 import MindCalc from "../assets/images/MindCalc.webp";
@@ -8,6 +9,7 @@ import { HiExternalLink } from "react-icons/hi";
 import { motion } from "framer-motion"
 
 const projects = [
+  { id: "API-DAK", deployed: true, title: "API-DAK: Simple API Taster", img: ApiDak, github: "https://github.com/KetanB6/API-DAK", link: "https://api-dak.vercel.app/", description: " A lightweight Postman-style API tester built with React — supports GET, POST, PUT, DELETE, PATCH — where users can input a URL, select a method, and send requests to preview results." },
   { id: "TinyCut", deployed: true, title: "TinyCut: Web based URL Shortner", img: TinyCut, github: "https://github.com/KetanB6/TinyCut", link: "https://tiny-cut.vercel.app/", description: " is a simple URL shortener built with Spring Boot and React that converts long links into short, easy-to-share ones. The backend generates unique short codes and maps them to original URLs, while the frontend retrieves and redirects using those codes. It provided hands-on experience with REST APIs, API integration, and full-stack deployment." },
   { id: "OneView", deployed: true, title: "ViewOne: Share it once, then it gone", img: OneView, github: "https://github.com/KetanB6/OneView", link: "https://one-view.vercel.app/", description: " is a web app where users can save a message, get a unique code, and view it once—after that, it’s deleted from the database. I developed the backend in Spring Boot (REST + JPA) while learning the Spring Framework, and set up the frontend in React (with some help from ChatGPT).✨ This kind of “view-once” message system can be useful in the real world for securely sharing sensitive information like temporary passwords, confidential notes, or private links." },
   { id: "Padarth", deployed: false, title: "Padarth: Ingredient Info. Provider", img: Padarth, github: "https://github.com/KetanB6/Padarth", link: null, description: " is a web-based ingredient analysis tool that lets users scan, upload, or search ingredients to check their health safety. It captures or uploads images, extracts text, and processes it using Gemini AI to fetch ingredient details. The results are displayed via JSP for a smooth user experience. Built with HTML, CSS, JavaScript, Servlets, and JSP, the project strengthened skills in backend development and API integration." },
