@@ -1,5 +1,5 @@
 import SocialLinks from "./SocialLinks";
-import ProfilePic from "../assets/images/ProfilePic.webp";
+import ProfilePic from "../assets/images/ProfilePic2.webp";
 import CV from "../assets/files/CV.pdf";
 import { FaJava } from "react-icons/fa";
 
