@@ -12,6 +12,18 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    id: "OneView",
+    title: "OneView",
+    subtitle: "View-once message app",
+    img: OneView,
+    tech: ["Spring Boot", "JPA", "React"],
+    github: "https://github.com/KetanB6/OneView",
+    link: "https://one-view.vercel.app/",
+    deployed: true,
+    description:
+      "Save a message, view it once, then it gets permanently deleted."
+  },
+  {
     id: "API-DAK",
     title: "API-DAK",
     subtitle: "Postman-like API testing tool",
@@ -34,18 +46,6 @@ const projects = [
     deployed: true,
     description:
       "A full-stack URL shortener with Spring Boot backend and React frontend."
-  },
-  {
-    id: "OneView",
-    title: "OneView",
-    subtitle: "View-once message app",
-    img: OneView,
-    tech: ["Spring Boot", "JPA", "React"],
-    github: "https://github.com/KetanB6/OneView",
-    link: "https://one-view.vercel.app/",
-    deployed: true,
-    description:
-      "Save a message, view it once, then it gets permanently deleted."
   },
   {
     id: "CurrConv",
