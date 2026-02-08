@@ -1,3 +1,4 @@
+import QuizKrida from "../assets/images/QuizKrida.webp";
 import ApiDak from "../assets/images/API-DAK.webp";
 import TinyCut from "../assets/images/TinyCut.webp";
 import Padarth from "../assets/images/Padarth.webp";
@@ -9,8 +10,21 @@ import CCA from "../assets/images/CurrencyConverterApp.webp";
 
 import { HiExternalLink } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const projects = [
+  {
+    id: "QuizKrida",
+    title: "QuizKrida",
+    subtitle: "Enterprise-Grade Online Quiz System.",
+    img: QuizKrida, 
+    tech: ["Spring Boot", "MySQL", "Hibernate/JPA", "RESTful", "Maven", "Next.js"],
+    github: "https://github.com/KetanB6/Quiz-Krida",
+    link: "https://myquizapp-psi.vercel.app/", 
+    deployed: true,
+    description:
+      "Developed a robust Spring Boot backend featuring a high-performance REST API, dynamic AI-driven quiz generation via custom Prompt Engineering, and an integrity-focused security layer to monitor user behavior and prevent cheating."
+  },
   {
     id: "OneView",
     title: "OneView",
@@ -22,18 +36,6 @@ const projects = [
     deployed: true,
     description:
       "Save a message, view it once, then it gets permanently deleted."
-  },
-  {
-    id: "API-DAK",
-    title: "API-DAK",
-    subtitle: "Postman-like API testing tool",
-    img: ApiDak,
-    tech: ["React", "REST", "HTTP"],
-    github: "https://github.com/KetanB6/API-DAK",
-    link: "https://api-dak.vercel.app/",
-    deployed: true,
-    description:
-      "A lightweight Postman-like tool that allows testing APIs directly from the browser using common HTTP methods."
   },
   {
     id: "TinyCut",
@@ -110,6 +112,12 @@ const projects = [
 ];
 
 const Projects = ({ openProject }) => {
+  const [showDetails, setShowDetails] = useState(null);
+
+  const toggleDetails = (id) => {
+    setShowDetails(showDetails === id ? null : id);
+  };
+  
   return (
     <div className="about card">
       <h2 className="sub">Projects</h2>

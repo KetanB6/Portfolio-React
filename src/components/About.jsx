@@ -3,24 +3,23 @@ import { motion } from "framer-motion"
 const About = () => (
   <div className="about card top">
     <h2 className="sub contain">Background</h2>
-    <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.8}} viewport={{once: true}}>
-    <p >
-      I am a software developer with a strong foundation in Java and hands-on
-      experience in Spring Boot, Servlets/JSP, JDBC, SQL, HTML, CSS, and React.
-      My programming journey began with C and C++, but I quickly discovered my
-      passion for Java and have since focused on mastering its ecosystem—covering
-      MVC, JPA, AOP, OAuth, JWT, and REST API development for scalable applications.
-      Alongside backend development, I am steadily expanding my skills in deployment
-      practices, Docker, and cloud platforms to build reliable and production-ready solutions.
-      With a solid understanding of core concepts like object-oriented programming, 
-      data structures (arrays, linked lists, stacks, queues, trees, recursion), and 
-      problem-solving, I strive to write efficient, maintainable, and clean code.
-      
-      Known for being a quick learner, adaptable, and collaborative, 
-      I am eager to continue growing while contributing to impactful,
-      real-world software projects that create value at scale.
-   
-    </p> 
+    <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
+      <p >
+        I am a Software Developer with a strong foundation in Java and hands-on 
+        experience in Spring Boot, SQL, and the React ecosystem. My programming 
+        journey began with C and C++, but I have since focused on mastering the 
+        Java ecosystem—covering MVC, JPA, AOP, and REST API development for scalable
+        applications. Beyond core backend development, I am continuously expanding
+        my expertise in Docker, deployment practices, and cloud platforms to build
+        production-ready solutions. I am currently deepening my knowledge of Spring
+        Security and Microservices architecture to architect more complex, 
+        distributed systems. With a solid command of OOP, Data Structures, and the
+        Java Collections Framework, I strive to write efficient, maintainable, 
+        and clean code. As a quick learner and collaborative problem-solver, I 
+        am eager to contribute to impactful, real-world software projects that 
+        create value at scale.
+
+      </p>
     </motion.div>
   </div>
 );
