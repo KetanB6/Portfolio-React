@@ -20,7 +20,7 @@ const projects = [
     img: QuizKrida, 
     tech: ["Spring Boot", "MySQL", "Hibernate/JPA", "RESTful", "Maven", "Next.js"],
     github: "https://github.com/KetanB6/Quiz-Krida",
-    link: "https://myquizapp-psi.vercel.app/", 
+    link: "https://quizkrida.vercel.app/", 
     deployed: true,
     description:
       "Developed a robust Spring Boot backend featuring a high-performance REST API, dynamic AI-driven quiz generation via custom Prompt Engineering, and an integrity-focused security layer to monitor user behavior and prevent cheating."
