@@ -5,7 +5,6 @@ import { FaXTwitter } from "react-icons/fa6";
 import { BiLogoInstagram } from "react-icons/bi";
 import { HiArrowDown } from "react-icons/hi";
 import ProfilePic from "../assets/ProfilePic.webp";
-import CV from "../assets/CV.pdf";
 
 const ROLES = ["Java Developer", "Spring Boot Dev", "Full Stack Builder", "Backend Engineer"];
 
@@ -100,7 +99,7 @@ const Hero = () => {
               <a href="#projects" className="btn-primary">
                 View Projects <HiArrowDown />
               </a>
-              <a href={CV} target="_blank" rel="noreferrer" className="btn-secondary">
+              <a href="/CV.pdf" target="_blank" rel="noreferrer" className="btn-secondary">
                 Download CV
               </a>
             </motion.div>
