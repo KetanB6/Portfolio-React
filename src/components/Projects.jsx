@@ -4,6 +4,7 @@ import { HiExternalLink } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
 
 // Image Imports
+import QuizKridaV2 from "../assets/QuizKridaV2.webp";
 import QuizKrida from "../assets/QuizKrida.webp";
 import ApiDak from "../assets/API-DAK.webp";
 import TinyCut from "../assets/TinyCut.webp";
@@ -14,6 +15,17 @@ import BankingApp from "../assets/BankingApp.webp";
 import CCA from "../assets/CurrencyConverterApp.webp";
 
 const projects = [
+  {
+    id: "QuizKridaV2",
+    title: "QuizKrida V2",
+    subtitle: "High-performance campus assessment engine",
+    img: QuizKridaV2,
+    tech: ["Java", "Spring Boot", "Spring Cache", "JWT", "MySQL", "REST API"],
+    github: "https://github.com/KetanB6/QuizKridaV2",
+    link: "https://qk-assessments.vercel.app/",
+    deployed: true,
+    description: "A secure, decoupled examination platform engineered for high-concurrency student traffic. Features in-memory caching to shield the database during live tests, stateless JWT authorization barriers, and an independent microservice deployment for AI-driven question generation.",
+  },
   {
     id: "QuizKrida",
     title: "QuizKrida",
@@ -115,10 +127,10 @@ const cardVar = {
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
-  
+
   // Changed to 3 so only the first row is visible initially
-  const projectsPerPage = 3; 
-  
+  const projectsPerPage = 3;
+
   // FIX: Use lowercase 'projects' (the array), not 'Projects' (the component)
   const displayedProjects = showAll ? projects : projects.slice(0, projectsPerPage);
 
