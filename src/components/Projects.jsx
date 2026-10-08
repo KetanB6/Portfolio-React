@@ -4,6 +4,7 @@ import { HiExternalLink } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
 
 // Image Imports
+import Pustak from "../assets/pustak.webp";
 import QuizKridaV2 from "../assets/QuizKridaV2.webp";
 import QuizKrida from "../assets/QuizKrida.webp";
 import ApiDak from "../assets/API-DAK.webp";
@@ -15,6 +16,17 @@ import BankingApp from "../assets/BankingApp.webp";
 import CCA from "../assets/CurrencyConverterApp.webp";
 
 const projects = [
+  {
+    id: "Pustak",
+    title: "Pustak: Netflix of Books",
+    subtitle: "Comprehensive online book-renting and subscription platform",
+    img: Pustak,
+    tech: ["Java", "Spring Boot", "OAuth2", "JWT", "PostgreSQL", "Razorpay"],
+    github: "https://github.com/KetanB6/pustak-backend",
+    link: "https://pustak-read-return.vercel.app/",
+    deployed: true,
+    description: "A secure book-renting ecosystem featuring strict Role-Based Access Control (RBAC) across three distinct dashboards for users, admins, and delivery agents. Engineered with OAuth2 for Google authentication, Razorpay for handling multi-tier subscriptions and wallet deposits, and a concurrency-safe 5-minute inventory hold mechanism to prevent double-booking.",
+  },
   {
     id: "QuizKridaV2",
     title: "QuizKrida V2",
