@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { HiExternalLink } from "react-icons/hi";
+import { motion } from "framer-motion";
+import { HiArrowUpRight } from "react-icons/hi2";
 import { FaGithub } from "react-icons/fa";
 
 // Image Imports
@@ -15,237 +15,257 @@ import OneView from "../assets/OneView.webp";
 import BankingApp from "../assets/BankingApp.webp";
 import CCA from "../assets/CurrencyConverterApp.webp";
 
-const projects = [
+const FEATURED_PROJECTS = [
   {
-    id: "Pustak",
-    title: "Pustak: Netflix of Books",
-    subtitle: "Comprehensive online book-renting and subscription platform",
+    id: "pustak",
+    title: "Pustak — Online Book Rental Platform",
+    description:
+      "A complete book-renting platform with 3 separate dashboards for Users, Admins, and Delivery agents. Implemented Google OAuth2 for simple sign-in, Razorpay for subscription payments, and a 5-minute inventory hold feature to prevent two people from renting the same book at once.",
     img: Pustak,
-    tech: ["Java", "Spring Boot", "OAuth2", "JWT", "PostgreSQL", "Razorpay"],
+    tech: ["Java", "Spring Boot", "PostgreSQL", "OAuth2", "JWT", "Razorpay"],
     github: "https://github.com/KetanB6/pustak-backend",
     link: "https://pustak-read-return.vercel.app/",
-    deployed: true,
-    description: "A secure book-renting ecosystem featuring strict Role-Based Access Control (RBAC) across three distinct dashboards for users, admins, and delivery agents. Engineered with OAuth2 for Google authentication, Razorpay for handling multi-tier subscriptions and wallet deposits, and a concurrency-safe 5-minute inventory hold mechanism to prevent double-booking.",
   },
   {
-    id: "QuizKridaV2",
-    title: "QuizKrida V2",
-    subtitle: "High-performance campus assessment engine",
+    id: "quizkrida-v2",
+    title: "QuizKrida V2 — Online Campus Exam App",
+    description:
+      "An examination web application designed to handle student exam traffic smoothly. Uses Spring Boot caching to protect the MySQL database from heavy queries during live tests, with stateless JWT security and AI question generation.",
     img: QuizKridaV2,
-    tech: ["Java", "Spring Boot", "Spring Cache", "JWT", "MySQL", "REST API"],
+    tech: ["Java", "Spring Boot", "MySQL", "Spring Cache", "JWT", "REST API"],
     github: "https://github.com/KetanB6/QuizKridaV2",
     link: "https://qk-assessments.vercel.app/",
-    deployed: true,
-    description: "A secure, decoupled examination platform engineered for high-concurrency student traffic. Features in-memory caching to shield the database during live tests, stateless JWT authorization barriers, and an independent microservice deployment for AI-driven question generation.",
   },
   {
-    id: "QuizKrida",
-    title: "QuizKrida",
-    subtitle: "Enterprise-Grade Online Quiz System",
-    img: QuizKrida,
-    tech: ["Spring Boot", "MySQL", "JPA", "REST", "Next.js"],
-    github: "https://github.com/KetanB6/Quiz-Krida",
-    link: "https://quizkrida.vercel.app/",
-    deployed: true,
-    description: "Robust Spring Boot backend with high-performance REST API, dynamic AI-driven quiz generation, and integrity-focused security.",
-  },
-  {
-    id: "OneView",
-    title: "OneView",
-    subtitle: "View-once secure message app",
+    id: "oneview",
+    title: "OneView — View-Once Secret Messages",
+    description:
+      "A privacy-focused web app for sending confidential notes. Once the recipient opens and reads the message, it is permanently and automatically deleted from the database.",
     img: OneView,
-    tech: ["Spring Boot", "JPA", "React"],
+    tech: ["Spring Boot", "React", "MySQL", "REST API"],
     github: "https://github.com/KetanB6/OneView",
     link: "https://one-view.vercel.app/",
-    deployed: true,
-    description: "Save a message, view it once — then it's permanently deleted. Full-stack privacy-first messaging.",
   },
   {
-    id: "TinyCut",
-    title: "TinyCut",
-    subtitle: "Full-stack URL Shortener",
+    id: "tinycut",
+    title: "TinyCut — URL Shortener",
+    description:
+      "A full-stack link shortening application. Users can paste long links to generate clean, short URLs with fast redirection. Built with a responsive React frontend and a Spring Boot REST API.",
     img: TinyCut,
-    tech: ["Spring Boot", "React", "REST"],
+    tech: ["Spring Boot", "React", "MySQL", "REST API"],
     github: "https://github.com/KetanB6/TinyCut",
     link: "https://tiny-cut.vercel.app/",
-    deployed: true,
-    description: "A full-stack URL shortener with Spring Boot backend and React frontend. Clean, minimal UI.",
+  },
+];
+
+const MORE_PROJECTS = [
+  {
+    id: "quizkrida-v1",
+    title: "QuizKrida V1",
+    description: "Online quiz application with automated scoring and question management built using Spring Boot and Next.js.",
+    img: QuizKrida,
+    tech: ["Spring Boot", "MySQL", "JPA", "Next.js"],
+    github: "https://github.com/KetanB6/Quiz-Krida",
+    link: "https://quizkrida.vercel.app/",
   },
   {
-    id: "CurrConv",
-    title: "Currency Converter",
-    subtitle: "Live exchange rate converter",
+    id: "currency-converter",
+    title: "Live Currency Converter",
+    description: "Real-time exchange rate converter supporting 35+ global currencies using third-party financial exchange APIs.",
     img: CCA,
-    tech: ["JSP", "Servlets", "External API"],
+    tech: ["Java", "JSP", "Servlets", "REST API"],
     github: "https://github.com/KetanB6/CurrencyConverterApp",
     link: "https://currencyconverter-1p9l.onrender.com/CCA/",
-    deployed: true,
-    description: "Currency converter supporting 35+ currencies using live exchange rates built with JSP/Servlets.",
   },
   {
-    id: "MindCalc",
-    title: "MindCalc",
-    subtitle: "Mental math speed game",
+    id: "mindcalc",
+    title: "MindCalc Math Game",
+    description: "A fast-paced mental arithmetic web game that challenges players to solve calculations against a countdown timer.",
     img: MindCalc,
     tech: ["Java", "Servlets", "HTML", "CSS"],
     github: "https://github.com/KetanB6/MindCalc",
     link: "https://mindcalc-ye1q.onrender.com/",
-    deployed: true,
-    description: "A timed mental math game focusing on speed and accuracy. Tracks your best streaks.",
   },
   {
-    id: "Padarth",
-    title: "Padarth",
-    subtitle: "AI Ingredient Safety Analyzer",
+    id: "padarth",
+    title: "Padarth — Ingredient Safety Checker",
+    description: "Uploads product food labels, extracts the ingredients list with OCR, and uses Gemini AI to detect potential harmful additives.",
     img: Padarth,
-    tech: ["JSP", "Servlets", "Gemini AI"],
+    tech: ["Java", "Servlets", "Gemini AI", "OCR"],
     github: "https://github.com/KetanB6/Padarth",
     link: null,
-    deployed: false,
-    description: "Ingredient safety analyzer using OCR and Gemini AI. Snap a product label and get a safety analysis.",
   },
   {
-    id: "ApiDak",
-    title: "API-DAK",
-    subtitle: "API testing & exploration tool",
+    id: "apidak",
+    title: "API-DAK Endpoint Tester",
+    description: "A simple and quick in-browser tool to test REST endpoints and view JSON responses without opening Postman.",
     img: ApiDak,
-    tech: ["React", "REST", "JavaScript"],
+    tech: ["React", "JavaScript", "REST"],
     github: "https://github.com/KetanB6",
     link: null,
-    deployed: false,
-    description: "A lightweight API testing tool built to explore and debug REST endpoints quickly.",
   },
   {
-    id: "BankingApp",
-    title: "Banking System",
-    subtitle: "Console banking application",
+    id: "banking",
+    title: "Console Banking System",
+    description: "A core banking project created to learn JDBC and MySQL transactions, supporting account creation, deposits, and secure PIN validation.",
     img: BankingApp,
     tech: ["Java", "JDBC", "MySQL"],
     github: "https://github.com/KetanB6/Bank-Management-System",
     link: null,
-    deployed: false,
-    description: "Console-based banking system with transactions and secure PIN handling built on JDBC.",
   },
 ];
-
-const cardVar = {
-  hidden: { opacity: 0, y: 30 },
-  show: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
-  }),
-};
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
 
-  // Changed to 3 so only the first row is visible initially
-  const projectsPerPage = 3;
-
-  // FIX: Use lowercase 'projects' (the array), not 'Projects' (the component)
-  const displayedProjects = showAll ? projects : projects.slice(0, projectsPerPage);
-
   return (
-    <section id="projects" style={{ padding: "4rem 0" }}>
+    <section id="projects">
       <div className="container">
-        <div className="projects-header">
-          <div>
-            <p className="section-label">My Work</p>
-            <h2 className="section-title">
-              Things I've <em>built</em>
-            </h2>
-          </div>
-          <a
-            href="https://github.com/KetanB6"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-secondary"
-          >
-            <FaGithub /> View All on GitHub
-          </a>
+        {/* Section Title */}
+        <div style={{ marginBottom: "2.5rem" }}>
+          <p className="section-label">Projects</p>
+          <h2 className="section-title">
+            Things I've <em>Built</em>
+          </h2>
+          <p className="section-desc">
+            A collection of real full-stack web applications and backend systems I created
+            to solve practical problems and practice good coding habits.
+          </p>
         </div>
 
-        <div className="projects-grid">
-          <AnimatePresence mode="popLayout">
-            {displayedProjects.map((p, i) => (
-              <motion.article
-                key={p.id}
-                className="project-card"
-                custom={i}
-                variants={cardVar}
-                initial="hidden"
-                whileInView="show"
-                exit={{ opacity: 0, scale: 0.95 }}
-                layout
-                viewport={{ once: true, margin: "-50px" }}
-              >
-                <div className="project-img-wrap">
-                  <img src={p.img} alt={p.title} loading="lazy" />
-                  <div className="project-img-overlay" />
-                  {p.deployed && (
-                    <span className="project-deployed-badge">Live</span>
-                  )}
+        {/* Featured Projects List */}
+        <div className="project-cards-stack">
+          {FEATURED_PROJECTS.map((proj, idx) => (
+            <motion.div
+              key={proj.id}
+              className="featured-project-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: idx * 0.05 }}
+            >
+              <div className="featured-card-grid">
+                {/* Image */}
+                <div className="featured-img-box">
+                  <img src={proj.img} alt={proj.title} className="featured-img" loading="lazy" />
                 </div>
 
-                <div className="project-body">
-                  <h3 className="project-title">{p.title}</h3>
-                  <p className="project-subtitle">{p.subtitle}</p>
-                  <p className="project-description">{p.description}</p>
+                {/* Content */}
+                <div className="featured-info-box">
+                  <h3 className="featured-project-title">{proj.title}</h3>
+                  <p className="featured-project-desc">{proj.description}</p>
 
-                  <div className="tech-chips">
-                    {p.tech.map((t) => (
-                      <span key={t} className="tech-chip">{t}</span>
+                  <div className="project-tech-tags">
+                    {proj.tech.map((t) => (
+                      <span key={t} className="tech-badge">
+                        {t}
+                      </span>
                     ))}
                   </div>
 
-                  <div className="project-actions">
-                    {p.deployed && p.link && (
+                  <div className="featured-links-row">
+                    {proj.link && (
                       <a
-                        href={p.link}
+                        href={proj.link}
                         target="_blank"
-                        rel="noreferrer"
-                        className="btn-proj-live"
+                        rel="noopener noreferrer"
+                        className="btn-primary"
+                        style={{ padding: "0.6rem 1.25rem", fontSize: "0.82rem" }}
                       >
-                        Live Demo <HiExternalLink />
+                        <span>Live Demo</span>
+                        <HiArrowUpRight />
                       </a>
                     )}
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn-proj-gh"
-                    >
-                      <FaGithub /> GitHub
-                    </a>
+                    {proj.github && (
+                      <a
+                        href={proj.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary"
+                        style={{ padding: "0.6rem 1.25rem", fontSize: "0.82rem" }}
+                      >
+                        <FaGithub />
+                        <span>Source Code</span>
+                      </a>
+                    )}
                   </div>
                 </div>
-              </motion.article>
-            ))}
-          </AnimatePresence>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Load More / Show Less Button Wrapper */}
-        {projects.length > projectsPerPage && (
-          <div className="load-more-container" style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "3rem"
-          }}>
+        {/* Other Projects Section */}
+        <div style={{ marginTop: "4rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem" }}>
+            <h3 style={{ fontSize: "1.25rem", fontWeight: 600, color: "var(--text-primary)" }}>
+              More Projects
+            </h3>
             <button
-              className="btn-primary"
-              onClick={() => setShowAll(!showAll)}
-              style={{
-                padding: "0.8rem 2.5rem",
-                fontSize: "1rem",
-                fontWeight: "600",
-                cursor: "pointer"
-              }}
+              onClick={() => setShowAll((prev) => !prev)}
+              className="btn-ghost"
+              style={{ fontSize: "0.85rem" }}
             >
-              {showAll ? "Show Less" : "Load More Projects"}
+              {showAll ? "Show Less" : `View All (${MORE_PROJECTS.length})`}
             </button>
           </div>
-        )}
+
+          <div className="more-projects-grid">
+            {(showAll ? MORE_PROJECTS : MORE_PROJECTS.slice(0, 3)).map((proj) => (
+              <div key={proj.id} className="small-project-card">
+                <div style={{ height: "160px", overflow: "hidden", background: "#050608", borderRadius: "8px", marginBottom: "1rem" }}>
+                  <img
+                    src={proj.img}
+                    alt={proj.title}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    loading="lazy"
+                  />
+                </div>
+                <h4 style={{ fontSize: "1.05rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "0.4rem" }}>
+                  {proj.title}
+                </h4>
+                <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: "1rem" }}>
+                  {proj.description}
+                </p>
+
+                <div className="project-tech-tags" style={{ marginBottom: "1.2rem" }}>
+                  {proj.tech.map((t) => (
+                    <span key={t} className="tech-badge" style={{ fontSize: "0.72rem" }}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{ display: "flex", gap: "1rem", marginTop: "auto" }}>
+                  {proj.link && (
+                    <a
+                      href={proj.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-ghost"
+                      style={{ color: "var(--text-primary)", fontSize: "0.82rem" }}
+                    >
+                      <span>Live Demo</span>
+                      <HiArrowUpRight />
+                    </a>
+                  )}
+                  {proj.github && (
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-ghost"
+                      style={{ fontSize: "0.82rem" }}
+                    >
+                      <FaGithub />
+                      <span>Code</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

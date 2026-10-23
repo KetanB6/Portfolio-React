@@ -1,48 +1,12 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaJava, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { BiLogoInstagram } from "react-icons/bi";
-import { HiArrowDown } from "react-icons/hi";
-import ProfilePic from "../assets/ProfilePic.webp";
-
-const ROLES = ["Java Developer", "Spring Boot Dev", "Full Stack Builder", "Backend Engineer"];
+import { HiArrowDown } from "react-icons/hi2";
+import { MdOutlineMail } from "react-icons/md";
+import ProfilePic from "../assets/image.png";
 
 const Hero = () => {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayRole, setDisplayRole] = useState("");
-  const [typing, setTyping] = useState(true);
-
-  useEffect(() => {
-    const role = ROLES[roleIndex];
-    let i = 0;
-    let timeout;
-
-    if (typing) {
-      const interval = setInterval(() => {
-        setDisplayRole(role.slice(0, i + 1));
-        i++;
-        if (i === role.length) {
-          clearInterval(interval);
-          timeout = setTimeout(() => setTyping(false), 2000);
-        }
-      }, 80);
-      return () => { clearInterval(interval); clearTimeout(timeout); };
-    } else {
-      let j = role.length;
-      const interval = setInterval(() => {
-        setDisplayRole(role.slice(0, j - 1));
-        j--;
-        if (j === 0) {
-          clearInterval(interval);
-          setRoleIndex((prev) => (prev + 1) % ROLES.length);
-          setTyping(true);
-        }
-      }, 45);
-      return () => clearInterval(interval);
-    }
-  }, [roleIndex, typing]);
-
   const socials = [
     { icon: <FaGithub />, href: "https://github.com/KetanB6", label: "GitHub" },
     { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/ketan-bidave-08397430a", label: "LinkedIn" },
@@ -50,114 +14,76 @@ const Hero = () => {
     { icon: <BiLogoInstagram />, href: "https://www.instagram.com/ketanbidave_06/", label: "Instagram" },
   ];
 
-  const containerVar = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } },
-  };
-
-  const itemVar = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
-  };
-
   return (
-    <section className="hero" id="home">
+    <section id="hero" className="hero">
       <div className="container">
-        <motion.div
-          className="hero-inner"
-          variants={containerVar}
-          initial="hidden"
-          animate="show"
-        >
-          {/* Left Content */}
-          <div>
-            {/* <motion.p className="hero-eyebrow" variants={itemVar}>
-               
-            </motion.p> */}
+        <div className="hero-grid">
+          {/* Left Column: Intro */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="status-badge" style={{ marginBottom: "1.25rem" }}>
+              <span className="status-dot" />
+              <span>Open to Fresher / Entry-Level Developer Roles</span>
+            </div>
 
-            <motion.h1 className="hero-title" variants={itemVar}>
-              Hello, I'm
-              <span className="name-cyan">Ketan Bidave</span>
-            </motion.h1>
+            <h1 className="hero-name">
+              Hi, I'm <span>Ketan Bidave</span>
+            </h1>
 
-            <motion.div className="hero-subtitle" variants={itemVar}>
-              <span className="role-badge">
-                <FaJava />
-                {displayRole}
-                <span style={{ color: "var(--primary-glow)", animation: "scrollPulse 1s infinite" }}>|</span>
-              </span>
-            </motion.div>
+            <h2 className="hero-headline">
+              Java & Backend Developer
+            </h2>
 
-            <motion.p className="hero-bio" variants={itemVar}>
-              Software Developer with a strong foundation in Java and hands-on
-              experience in Spring Boot, SQL, and the React ecosystem. I build
-              scalable, production-ready applications — from robust REST APIs to
-              full-stack web solutions.
-            </motion.p>
+            <p className="hero-narrative">
+              I am an aspiring Software Developer with hands-on experience building backend APIs
+              using Java, Spring Boot, and MySQL, alongside modern frontends in React.
+              I love writing clean, readable code and learning how to build scalable real-world applications.
+            </p>
 
-            <motion.div className="hero-actions" variants={itemVar}>
+            <div className="hero-actions">
               <a href="#projects" className="btn-primary">
-                View Projects <HiArrowDown />
+                <span>View Projects</span>
+                <HiArrowDown />
               </a>
-              <a href="/CV.pdf" target="_blank" rel="noreferrer" className="btn-secondary">
-                Download CV
+              <a href="#contact" className="btn-secondary">
+                <MdOutlineMail size={16} />
+                <span>Get In Touch</span>
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div className="hero-socials" variants={itemVar}>
+            <div className="hero-socials">
               {socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   target="_blank"
-                  rel="noreferrer"
-                  className="hero-social-link"
+                  rel="noopener noreferrer"
+                  className="hero-social-btn"
                   aria-label={s.label}
                 >
                   {s.icon}
                 </a>
               ))}
-            </motion.div>
-          </div>
-
-          {/* Right — Profile Visual */}
-          <motion.div
-            className="hero-visual"
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="profile-ring">
-              <img src={ProfilePic} alt="Ketan Bidave" className="profile-img" />
             </div>
-
-            {/* Floating stat chips */}
-            {/* <motion.div
-              className="hero-stat hero-stat-a"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.1, duration: 0.6 }}
-            >
-              <div className="hero-stat-num">8+</div>
-              <div className="hero-stat-label">Projects Built</div>
-            </motion.div> */}
-
-            {/* <motion.div
-              className="hero-stat hero-stat-b"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.3, duration: 0.6 }}
-            >
-              <div className="hero-stat-num">11+</div>
-              <div className="hero-stat-label">Technologies</div>
-            </motion.div> */}
           </motion.div>
-        </motion.div>
-      </div>
 
-      <div className="scroll-indicator">
-        <div className="scroll-line" />
-        <span>Scroll</span>
+          {/* Right Column: Profile Image */}
+          <motion.div
+            className="hero-photo-wrapper"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <img
+              src={ProfilePic}
+              alt="Ketan Bidave"
+              className="hero-avatar"
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

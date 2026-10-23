@@ -1,80 +1,102 @@
 import { motion } from "framer-motion";
+import { HiArrowDownTray } from "react-icons/hi2";
+import { FaGraduationCap, FaCode, FaLaptopCode } from "react-icons/fa";
+import CV from "../assets/CV.pdf";
 
-const highlights = [
-  { icon: "☕", title: "Java Ecosystem", desc: "Spring Boot, JPA, MVC, AOP, REST APIs" },
-  { icon: "🗄️", title: "Databases", desc: "MySQL, JDBC, JPA/Hibernate, SQL" },
-  { icon: "⚛️", title: "Frontend", desc: "React, JavaScript, HTML, CSS, Tailwind" },
-  { icon: "🚀", title: "DevOps", desc: "Docker, Git, GitHub, Deployment practices" },
+const FOCUS_AREAS = [
+  {
+    icon: <FaCode />,
+    title: "Clean Backend APIs",
+    desc: "Writing readable, modular REST endpoints in Spring Boot with proper error handling and clean data structures.",
+  },
+  {
+    icon: <FaLaptopCode />,
+    title: "Database Modeling",
+    desc: "Designing normalized MySQL tables, managing entity relationships in Hibernate, and testing query efficiency.",
+  },
+  {
+    icon: <FaGraduationCap />,
+    title: "Eager to Learn",
+    desc: "Always exploring new tools, reading documentation, and ready to quickly adapt to team workflows and tech stacks.",
+  },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.65, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
+const About = () => {
+  return (
+    <section id="about">
+      <div className="container">
+        <div style={{ marginBottom: "2.5rem" }}>
+          <p className="section-label">About Me</p>
+          <h2 className="section-title">
+            Passionate About <em>Software & Problem Solving</em>
+          </h2>
+          <p className="section-desc">
+            A quick glimpse into my background, what drives me, and the habits I practice every day.
+          </p>
+        </div>
 
-const About = () => (
-  <section id="about">
-    <div className="container">
-      <div className="about-grid">
-        {/* Text */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
-        >
-          <motion.p className="section-label" variants={fadeUp} custom={0}>
-            Who I Am
-          </motion.p>
-          <motion.h2 className="section-title" variants={fadeUp} custom={1}>
-            Building systems that <em>scale</em>
-          </motion.h2>
-
-          <motion.div variants={fadeUp} custom={2}>
+        <div className="about-simple-grid">
+          {/* Left: Honest Bio */}
+          <motion.div
+            className="about-bio-text"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+          >
             <p>
-              I'm a Software Developer with a strong foundation in Java and hands-on
-              experience in Spring Boot, SQL, and the React ecosystem. My programming
-              journey began with C and C++, but I've since focused on mastering the
-              Java ecosystem — covering MVC, JPA, AOP, and REST API development for
-              scalable applications.
+              Hi, I'm Ketan! I am a fresher Software Developer from Maharashtra, India. 
+              My programming journey began with C and C++, which gave me a strong mental model 
+              for Object-Oriented Programming (OOP), Data Structures, and problem-solving logic.
             </p>
             <p>
-              Beyond core backend development, I'm continuously expanding my expertise
-              in Docker, deployment practices, and cloud platforms to build
-              production-ready solutions. I'm currently deepening my knowledge of
-              Spring Security and Microservices architecture.
-            
-              With a solid command of OOP, Data Structures, and the Java Collections
-              Framework, I strive to write efficient, maintainable, and clean code that
-              creates real value at scale.
+              Over time, I found my passion in backend development with the Java ecosystem. 
+              I've built several full-stack applications with Spring Boot, Hibernate, and MySQL, 
+              covering practical features like role-based authentication (RBAC), payment gateway 
+              integration, caching, and clean RESTful API design.
             </p>
+            <p>
+              I take pride in writing code that is clean, easy to read, and well-structured. 
+              I am actively seeking an entry-level software engineering role or internship 
+              where I can learn alongside talented developers and build impactful software.
+            </p>
+
+            <div style={{ marginTop: "2rem" }}>
+              <a
+                href={CV}
+                download="Ketan_Bidave_CV.pdf"
+                className="btn-primary"
+                style={{ display: "inline-flex", gap: "0.5rem" }}
+              >
+                <HiArrowDownTray />
+                <span>Download Resume (PDF)</span>
+              </a>
+            </div>
           </motion.div>
 
-          <div className="about-highlights">
-            {highlights.map((h, i) => (
+          {/* Right: Simple Focus Cards */}
+          <div className="about-focus-cards">
+            {FOCUS_AREAS.map((item, idx) => (
               <motion.div
-                key={h.title}
-                className="highlight-card"
-                variants={fadeUp}
-                custom={i + 3}
-                initial="hidden"
-                whileInView="show"
+                key={item.title}
+                className="focus-card"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
               >
-                <div className="highlight-icon">{h.icon}</div>
-                <h4>{h.title}</h4>
-                <p>{h.desc}</p>
+                <div className="focus-card-icon">{item.icon}</div>
+                <div>
+                  <h4 className="focus-card-title">{item.title}</h4>
+                  <p className="focus-card-desc">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default About;
